@@ -5,8 +5,8 @@ module challenge_1::cat_object;
 public struct Cat has key {
     id: UID,
     // Challenge: make the `name` and `color` fields a String type instead of vector<u8>
-    name: vector<u8>,
-    color: vector<u8>
+    name: String<u8>,
+    color: String<u8>
 }
 
 
