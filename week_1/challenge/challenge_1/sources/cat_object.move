@@ -22,7 +22,7 @@ public fun new(name: String<u8>, color: String<u8>, ctx: &mut TxContext): Cat  {
 
 public fun tchau(cat: Cat) {
     // Challenge: denote that the cat_name and cat_color variables are not going to be used at all in this block
-    let Cat {id, name: cat_name, color: cat_color } = cat;
+    let Cat {id, name: _, color: _} = cat;
     object::delete(id);
 }
 
@@ -31,5 +31,4 @@ public fun tchau(cat: Cat) {
 // The resulting code should only have one line, the line that changes the color.
 public fun paint(mut cat: Cat, new_color: vector<u8>, ctx: &mut TxContext) {
     cat.color = new_color;
-    transfer::transfer(cat, ctx.sender());
 }
