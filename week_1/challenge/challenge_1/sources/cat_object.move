@@ -2,16 +2,16 @@ module challenge_1::cat_object;
 
 
 // Challenge: make this struct transferable
-public struct Cat has key {
+public struct Cat has key, Store {
     id: UID,
     // Challenge: make the `name` and `color` fields a String type instead of vector<u8>
-    name: String<u8>,
-    color: String<u8>
+    name: String,
+    color: String
 }
 
 
 // Challenge: make this function return the object instead of transfering it
-public fun new(name: String<u8>, color: String<u8>, ctx: &mut TxContext): Cat  {
+public fun new(name: String, color: String, ctx: &mut TxContext): Cat  {
     let cat = Cat {
         id: object::new(ctx),
         name: name,
